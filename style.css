@@ -25,6 +25,7 @@ body {
     animation: pulse 1.5s infinite;
 }
 
+/* Letter Screen */
 #letter-container {
     display: none;
     position: fixed;
@@ -37,16 +38,19 @@ body {
     width: 90vw;
     max-width: 800px;
     aspect-ratio: 3/2;
-    padding-top: 180px;
+    padding: 20px 20px 0 20px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     text-align: center;
     background-image: url("window.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 12px;
     gap: 10px;
+    padding-top: 180px;
 
     transform: scale(1.2);
     opacity: 0;
@@ -58,15 +62,21 @@ body {
     opacity: 1;
 }
 
-h1 { font-size: 30px; }
-p { font-size: 40px; }
-
-.cat {
-    width: 250px;
+h1 {
+    font-size: 30px;
+    margin: 0;
 }
 
+/* Main image */
+.cat {
+    width: 250px;
+    margin: 10px 0;
+}
+
+/* Buttons */
 .buttons {
     display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -75,15 +85,22 @@ p { font-size: 40px; }
     cursor: pointer;
 }
 
+.yes-btn {
+    animation: pulse 1.2s infinite;
+}
+
+/* Final text */
 .final-text {
     font-size: 22px;
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
     padding: 10px 20px;
     background-color: rgba(255,240,240,0.5);
     border-radius: 12px;
 }
 
-/* ===== MEME POPUP ===== */
-
+/* Meme Popup */
 #no-popup {
     position: fixed;
     inset: 0;
@@ -101,7 +118,7 @@ p { font-size: 40px; }
 }
 
 #no-popup p {
-    font-size: 24px;
+    font-size: 22px;
     margin-top: 10px;
     color: white;
     background: rgba(0,0,0,0.7);
