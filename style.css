@@ -8,10 +8,15 @@ body {
     font-family: "Pixelify Sans", sans-serif;
 }
 
-/* Envelope Screen */
+/* Envelope */
 #envelope-container {
     text-align: center;
     cursor: pointer;
+}
+
+#envelope {
+    width: 180px;
+    animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
@@ -20,12 +25,7 @@ body {
     100% { transform: scale(1); }
 }
 
-#envelope {
-    width: 200px;
-    animation: pulse 1.5s infinite;
-}
-
-/* Letter Screen */
+/* Letter screen */
 #letter-container {
     display: none;
     position: fixed;
@@ -34,25 +34,27 @@ body {
     align-items: center;
 }
 
+/* Main window layout */
 .letter-window {
     width: 90vw;
-    max-width: 800px;
-    aspect-ratio: 3/2;
-    padding: 20px 20px 0 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    max-width: 700px;
+    height: 80vh;
+    max-height: 520px;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
     align-items: center;
+    justify-items: center;
+
+    padding: 30px 20px;
     text-align: center;
+
     background-image: url("window.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 12px;
-    gap: 10px;
-    padding-top: 180px;
 
-    transform: scale(1.2);
+    transform: scale(1.1);
     opacity: 0;
     transition: transform 0.6s ease, opacity 0.6s ease;
 }
@@ -62,42 +64,44 @@ body {
     opacity: 1;
 }
 
-h1 {
-    font-size: 30px;
-    margin: 0;
+/* Title */
+#letter-title {
+    font-size: 26px;
+    margin: 10px 0;
 }
 
 /* Main image */
 .cat {
-    width: 250px;
-    margin: 10px 0;
+    width: 180px;
+    max-width: 60%;
+    border-radius: 12px;
+    object-fit: cover;
 }
 
 /* Buttons */
 .buttons {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    gap: 24px;
+    margin-top: 10px;
 }
 
 .btn {
-    width: 120px;
+    width: 110px;
     cursor: pointer;
 }
 
+/* YES pulse */
 .yes-btn {
     animation: pulse 1.2s infinite;
 }
 
 /* Final text */
 .final-text {
-    font-size: 22px;
-    line-height: 1.4;
-    text-align: center;
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255,240,240,0.5);
-    border-radius: 12px;
+    font-size: 18px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 /* Meme Popup */
