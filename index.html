@@ -1,52 +1,131 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Valentine Letter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("heart-bg.jpg");
+    font-family: "Pixelify Sans", sans-serif;
+}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aldrich&family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Envelope Screen -->
-    <div id="envelope-container">
-      <img src="envelope.png" alt="Envelope" id="envelope" />
-      <p>♡ Letter for Cutu ♡</p>
-    </div>
+/* Envelope */
+#envelope-container {
+    text-align: center;
+    cursor: pointer;
+}
 
-    <!-- Letter Screen -->
-    <div id="letter-container">
-      <div class="letter-window">
-        <h1 id="letter-title">Will you be my Valentine?</h1>
+#envelope {
+    width: 180px;
+    animation: pulse 1.5s infinite;
+}
 
-        <img src="1.jpg" class="cat" id="letter-cat" />
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
 
-        <div class="buttons" id="letter-buttons">
-          <img src="yes.png" class="btn yes-btn" alt="Yes" />
+/* Letter screen */
+#letter-container {
+    display: none;
+    position: fixed;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+}
 
-          <div class="no-wrapper">
-            <img src="no.png" class="btn no-btn" alt="No" />
-          </div>
-        </div>
+/* Main window layout */
+.letter-window {
+    width: 90vw;
+    max-width: 700px;
+    height: 80vh;
+    max-height: 520px;
 
-        <p id="final-text" class="final-text" style="display: none">
-          <strong>Valentine:</strong>Artisanal Bier Village at 7pm. Dress fancy!
-        </p>
-      </div>
-    </div>
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    align-items: center;
+    justify-items: center;
 
-    <!-- Meme Popup Overlay -->
-    <div id="no-popup">
-      <img src="200.gif" />
-      <p>GYM nahi hai jo NO kiya 💪😤</p>
-    </div>
+    padding: 30px 20px;
+    text-align: center;
 
-    <script src="script.js"></script>
-  </body>
-</html>
+    background-image: url("window.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transform: scale(1.1);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.letter-window.open {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Title */
+#letter-title {
+    font-size: 26px;
+    margin: 10px 0;
+}
+
+/* Main image */
+.cat {
+    width: 180px;
+    max-width: 60%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+}
+
+.btn {
+    width: 110px;
+    cursor: pointer;
+}
+
+/* YES pulse */
+.yes-btn {
+    animation: pulse 1.2s infinite;
+}
+
+/* Final text */
+.final-text {
+    font-size: 18px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Meme Popup */
+#no-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+#no-popup img {
+    width: 220px;
+    border-radius: 12px;
+}
+
+#no-popup p {
+    font-size: 22px;
+    margin-top: 10px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
