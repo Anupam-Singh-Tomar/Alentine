@@ -2,7 +2,7 @@
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
 const noBtn = document.querySelector(".no-btn");
-const yesBtn = document.querySelector(".btn[alt='Yes']");
+const yesBtn = document.querySelector(".yes-btn");
 
 const title = document.getElementById("letter-title");
 const catImg = document.getElementById("letter-cat");
@@ -39,11 +39,11 @@ noBtn.addEventListener("click", () => {
 // After that → NO runs away but stays on screen
 noBtn.addEventListener("mouseover", () => {
     if (noClickedOnce) {
-        const btnRect = noBtn.getBoundingClientRect();
+        const rect = noBtn.getBoundingClientRect();
         const padding = 20;
 
-        const maxX = window.innerWidth - btnRect.width - padding;
-        const maxY = window.innerHeight - btnRect.height - padding;
+        const maxX = window.innerWidth - rect.width - padding;
+        const maxY = window.innerHeight - rect.height - padding;
 
         const randomX = Math.random() * maxX;
         const randomY = Math.random() * maxY;
