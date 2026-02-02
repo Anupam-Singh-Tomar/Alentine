@@ -1,4 +1,4 @@
-// Elements
+// Elements 
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
 const noBtn = document.querySelector(".no-btn");
@@ -29,14 +29,14 @@ noBtn.addEventListener("click", () => {
         noClickedOnce = true;
         noPopup.style.display = "flex";
 
-        // Hide after 5 sec
+        // Hide after 3 sec
         setTimeout(() => {
             noPopup.style.display = "none";
         }, 3000);
     }
 });
 
-// After that → NO runs away
+// After that → NO runs away but stays on screen
 noBtn.addEventListener("mouseover", () => {
     if (noClickedOnce) {
         const btnRect = noBtn.getBoundingClientRect();
